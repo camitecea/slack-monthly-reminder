@@ -1,0 +1,27 @@
+name: Slack Monthly Reminder
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # Todos los días a las 09:00 UTC
+  workflow_dispatch:       # Permite ejecutarlo manualmente también
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run reminder script
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python reminder.py
