@@ -13,7 +13,7 @@ ultimo_dia_mes = (hoy.replace(day=28) + datetime.timedelta(days=4)).replace(day=
 dias_restantes = (ultimo_dia_mes - hoy).days
 
 # Solo se envía si faltan 7 días o menos para terminar el mes
-if dias_restantes < 7:
+if dias_restantes <= 7:
     mensaje = {
         "text": ":calendar: *¡Recordatorio mensual!* No olvidemos preguntar por los *eventos* y los *vuelos directos* :airplane:"
     }
