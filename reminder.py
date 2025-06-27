@@ -15,7 +15,7 @@ dias_restantes = (ultimo_dia_mes - hoy).days
 # Solo se envía cuando faltan 7 días exactos antes de finalizar el mes
 if dias_restantes == 7:
     mensaje = {
-        "text": ":calendar: *¡Recordatorio mensual!* No olvidemos preguntar por los *eventos* y los *vuelos directos* :airplane:"
+        "text": ":calendar: *¡Recordatorio mensual!* Equipo! No olvidemos consultar por la información de los *eventos* y los *vuelos directos* :airplane:"
     }
 
     response = requests.post(SLACK_WEBHOOK_URL, json=mensaje)
